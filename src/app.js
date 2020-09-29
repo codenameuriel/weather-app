@@ -10,6 +10,8 @@ console.log(path.join(__dirname)); // produces same path as __dirname
 console.log(path.join(__dirname, '../public'));
 
 const app = express();
+// store Heroku port, or port 3001 for local use
+const port = process.env.PORT || 3001;
 const publicDir = path.join(__dirname, '../public');
 const viewsDir = path.join(__dirname, '../templates/views'); // by default, when using a template engine, uses a views directory at the level of src or public
 // this directory is renamed to templates and Node is configured to allow for this change
@@ -127,8 +129,8 @@ app.get('*', (req, res) => {
 // takes a port as an argument - 3000 is a common local development port
 // can also pass a callback which will execute when server is up and running
 // starting up server is an asynchronous process
-app.listen(3001, () => {
-  console.log('Server is up on port 3001.');
+app.listen(port, () => {
+  console.log('Server is up on port ' + port);
   
   // node application will not stop running unless explicitly instructed to
 });

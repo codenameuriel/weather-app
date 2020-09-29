@@ -31,8 +31,9 @@ const messageTwo = document.querySelector('#message-2');
 weatherForm.addEventListener('submit', event => {
   event.preventDefault();
 
+  // url will now append route to what ever the domain is to work with Heroku server or localhost
   const location = search.value;
-  const url = `http://localhost:3001/weather?address=${location}`;
+  const url = `/weather?address=${location}`;
   messageOne.textContent = 'Getting weather...';
   messageTwo.textContent = '';
 
