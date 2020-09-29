@@ -86,7 +86,7 @@ app.get('/weather', (req, res) => {
 
     // destructure the forecast data that is returned when successful
     forecast(geocodeData, (error, { 
-      temperature, feelsLike, weatherDescription 
+      temperature, feelsLike, weatherDescription, humidity
     }) => {
       if (error) {
         return res.send({error});
@@ -98,6 +98,7 @@ app.get('/weather', (req, res) => {
           temperature,
           feelsLike,
           weatherDescription,
+          humidity
         },
         address: req.query.address
       });

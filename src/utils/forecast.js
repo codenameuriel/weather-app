@@ -17,12 +17,15 @@ const forecast = ({ latitude, longitude }, callback) => {
     } else if (responseError) {
       callback('Unable to find weather for search. Try another search.', undefined);
     } else {
-      const { temperature, feelslike: feelsLike, weather_descriptions: weatherDescription } = body.current;
+      const { temperature, feelslike: feelsLike, weather_descriptions: weatherDescription, humidity } = body.current;
+
+      console.log(body.current);
 
       callback(undefined, {
         temperature,
         feelsLike,
-        weatherDescription: weatherDescription[0]
+        weatherDescription: weatherDescription[0],
+        humidity
       });
     }
   });
