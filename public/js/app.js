@@ -42,9 +42,9 @@ weatherForm.addEventListener('submit', event => {
       if (data.error) messageOne.textContent = data.error;
       else {
         const { location } = data;
-        const { temperature, weatherDescription, humidity } = data.forecast;
+        const { temperature, weatherDescription, humidity, feelsLike } = data.forecast;
         messageOne.textContent = `${location}.`;
-        messageTwo.textContent = `It's ${temperature} degrees, and ${weatherDescription} with ${humidity}% humidity.`;
+        messageTwo.textContent = `${weatherDescription}. It's ${temperature} degrees. And feels like ${feelsLike} degrees with ${humidity}% humidity.`;
       }
       
     });
