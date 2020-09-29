@@ -1,0 +1,37 @@
+{{!--  file that will serve as a template for the root route replacing index.html --}}
+
+{{!-- hbs files are like erb files which are html files with some added features for dynamic code --}}
+
+{{!-- home page will no longer be served as static file within the public directory but a dynamic file --}}
+
+{{!-- dynamic file requires a route to be served unlike static files within the public directory --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- absolute path from the public directory which is served by the web server -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/img/weather.png">
+  {{!-- defer will allow the HTML document to load before executing the JS file --}}
+  <script defer src="/js/app.js"></script>
+  <title>Weather</title>
+</head>
+<body>
+  <div class="main-content">
+    {{>header}}
+    <p>Use this site to get your weather!</p>
+
+    <form>
+      <input placeholder="Enter Location">
+      <button>Search</button>
+    </form>
+
+    <p id="message-1"></p>
+    <p id="message-2"></p>
+  </div>
+  
+  {{>footer}}
+</body>
+</html>
